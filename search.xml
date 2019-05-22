@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[友链]]></title>
-    <url>%2Ffriends%2F</url>
-    <content type="text"><![CDATA[%%%orz以下所有吊打我的大佬：memset0 redbag M-sea rqy lxy]]></content>
-      <categories>
-        <category>Intro</category>
-      </categories>
-  </entry>
-  <entry>
     <title><![CDATA[类别索引]]></title>
     <url>%2Fcategory%2F</url>
     <content type="text"><![CDATA[介绍题解]]></content>
