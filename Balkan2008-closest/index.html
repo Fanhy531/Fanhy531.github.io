@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="fanhy">
 <meta property="og:description" content="Problem问题描述：有两个没有前导$0$的$n$位十进制数$A$和$B$。我们需要找到两个最接近$A$的$n$位数(第1个大于等于$A$，第二小于$A$)，包含B的所有数字。 例如，如果$A=3022$，$B=1232$，采用$B$的数字，我们可以得到以下$4$位数:$1223$，$1232$，$1322$，$2123$，$2132$，$2213$，$2231$，$2312$，$2321$，$">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-05-25T05:23:12.969Z">
+<meta property="og:updated_time" content="2019-05-25T07:03:02.179Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Balkan2008 closest 题解">
 <meta name="twitter:description" content="Problem问题描述：有两个没有前导$0$的$n$位十进制数$A$和$B$。我们需要找到两个最接近$A$的$n$位数(第1个大于等于$A$，第二小于$A$)，包含B的所有数字。 例如，如果$A=3022$，$B=1232$，采用$B$的数字，我们可以得到以下$4$位数:$1223$，$1232$，$1322$，$2123$，$2132$，$2213$，$2231$，$2312$，$2321$，$">
@@ -436,7 +436,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-25 13:23:12" itemprop="dateModified" datetime="2019-05-25T13:23:12+08:00">2019-05-25</time>
+                <time title="Modified: 2019-05-25 15:03:02" itemprop="dateModified" datetime="2019-05-25T15:03:02+08:00">2019-05-25</time>
               
             
           </span>
@@ -511,12 +511,12 @@
 <h2 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h2><p>输出两行，每行一个十进制数。</p>
 <p>第1行是最小的大于等于$A$的没有前导$0$的，包含$B$所有数字的$n$位十进制数。如果这样的数不存在，则输出$0$。</p>
 <p>第2行是最大的小于$A$的没有前导$0$的，包含$B$所有数字的$n$位十进制数。如果这样的数不存在，则输出$0$。</p>
-<h2 id="样例输入输出："><a href="#样例输入输出：" class="headerlink" title="样例输入输出："></a>样例输入输出：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input</span><br><span class="line"></span><br><span class="line">3075</span><br><span class="line"></span><br><span class="line">6604</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Output</span><br><span class="line"></span><br><span class="line">4066</span><br><span class="line"></span><br><span class="line">0</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input</span><br><span class="line"></span><br><span class="line">3000203</span><br><span class="line"></span><br><span class="line">4562454</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Output</span><br><span class="line"></span><br><span class="line">4244556</span><br><span class="line"></span><br><span class="line">2655444</span><br></pre></td></tr></table></figure>
+<h2 id="样例输入输出："><a href="#样例输入输出：" class="headerlink" title="样例输入输出："></a>样例输入输出：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input #1</span><br><span class="line">3075</span><br><span class="line">6604</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Output #1</span><br><span class="line">4066</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input #2</span><br><span class="line">3000203</span><br><span class="line">4562454</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Output #2</span><br><span class="line">4244556</span><br><span class="line">2655444</span><br></pre></td></tr></table></figure>
 <h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p><strong><a href="https://www.luogu.org/problemnew/show/SP3889" target="_blank" rel="noopener">洛谷SP3889</a>与本题基本一样。</strong></p>
-<p>本题难度较低。</p>
+<p>本题难度不高。</p>
 <p>很容易想到，既然越接近越好，那么就一位一位匹配，能匹配上就用，如果发现完成不了回溯就行了。</p>
 <p>这题主要是注意下细节，调试可能比较烦，算法很简单，耐心做就OK了。</p>
 <p>具体算法详见代码。</p>
