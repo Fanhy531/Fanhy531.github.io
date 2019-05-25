@@ -8,6 +8,7 @@
         <category>solution</category>
       </categories>
       <tags>
+        <tag>搜索</tag>
         <tag>Balkan</tag>
         <tag>2008</tag>
         <tag>DFS</tag>
@@ -32,7 +33,7 @@
   <entry>
     <title><![CDATA[标签索引]]></title>
     <url>%2Ftag%2F</url>
-    <content type="text"><![CDATA[题库、比赛、地区标签Balkan BOI 年份标签2008 2013 算法标签BFS DFS 反色]]></content>
+    <content type="text"><![CDATA[题库、比赛、地区标签Balkan BOI 年份标签2008 2013 算法标签BFS DFS 反色 搜索]]></content>
       <categories>
         <category>system</category>
       </categories>
@@ -49,6 +50,7 @@
         <tag>2013</tag>
         <tag>BFS</tag>
         <tag>反色</tag>
+        <tag>搜索</tag>
       </tags>
   </entry>
   <entry>
