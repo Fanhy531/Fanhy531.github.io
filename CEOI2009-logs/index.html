@@ -96,17 +96,18 @@
 
 
 
-  <meta name="description" content="a naive OIer">
-<meta name="keywords" content="fanhy">
-<meta property="og:type" content="website">
-<meta property="og:title" content="fanhy">
-<meta property="og:url" content="http://fanhy531.github.io/tags/2013/index.html">
+  <meta name="description" content="Problem问题简述：有一个$n×m$的01矩阵，现在你可以的任意交换其中的列，要求找一个最大的仅由1组成的矩阵。  输入格式：第一行包含两个整数$n(1≤n≤15000)$和$m(1≤m≤1500)$，表示矩阵的大小。 接下来$n$行，每行$m$个字符$0$或$1$。 输出格式：一个最大的仅由$1$组成的矩阵面积。 样例输入输出：123456789101112Input #110 600101">
+<meta name="keywords" content="CEOI,2009,悬线法,滚动数组">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CEOI2009 logs 题解">
+<meta property="og:url" content="http://fanhy531.github.io/CEOI2009-logs/index.html">
 <meta property="og:site_name" content="fanhy">
-<meta property="og:description" content="a naive OIer">
+<meta property="og:description" content="Problem问题简述：有一个$n×m$的01矩阵，现在你可以的任意交换其中的列，要求找一个最大的仅由1组成的矩阵。  输入格式：第一行包含两个整数$n(1≤n≤15000)$和$m(1≤m≤1500)$，表示矩阵的大小。 接下来$n$行，每行$m$个字符$0$或$1$。 输出格式：一个最大的仅由$1$组成的矩阵面积。 样例输入输出：123456789101112Input #110 600101">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-06-05T14:28:14.300Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="fanhy">
-<meta name="twitter:description" content="a naive OIer">
+<meta name="twitter:title" content="CEOI2009 logs 题解">
+<meta name="twitter:description" content="Problem问题简述：有一个$n×m$的01矩阵，现在你可以的任意交换其中的列，要求找一个最大的仅由1组成的矩阵。  输入格式：第一行包含两个整数$n(1≤n≤15000)$和$m(1≤m≤1500)$，表示矩阵的大小。 接下来$n$行，每行$m$个字符$0$或$1$。 输出格式：一个最大的仅由$1$组成的矩阵面积。 样例输入输出：123456789101112Input #110 600101">
 
 
 
@@ -114,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="http://fanhy531.github.io/tags/2013/">
+  <link rel="canonical" href="http://fanhy531.github.io/CEOI2009-logs/">
 
 
 
@@ -124,7 +125,7 @@
   };
 </script>
 
-  <title>Tag: 2013 | fanhy</title>
+  <title>CEOI2009 logs 题解 | fanhy</title>
   
 
 
@@ -172,7 +173,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -370,86 +371,223 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>2013<small>Tag</small>
-        </h2>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://fanhy531.github.io/CEOI2009-logs/">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="fanhy">
+      <meta itemprop="description" content="a naive OIer">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fanhy">
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <a class="post-title-link" href="/BOI2013-tracks-in-the-snow/" itemprop="url">
-            
-              <span itemprop="name">BOI2013 tracks in the snow 题解</span>
-            
-          </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">CEOI2009 logs 题解
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-12T23:35:01+08:00" content="2019-05-12">
-          05-12
-        </time>
-      </div>
+              
+            
+          </h2>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
+          <span class="post-time">
 
+            
+            
+            
 
+            
+
+            
+              
+
+              
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-06-05 22:28:14" itemprop="dateModified" datetime="2019-06-05T22:28:14+08:00">2019-06-05</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/solution/" itemprop="url" rel="index"><span itemprop="name">solution</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Comments: </span>
+                <a href="/CEOI2009-logs/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/CEOI2009-logs/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h1><h2 id="问题简述："><a href="#问题简述：" class="headerlink" title="问题简述："></a>问题简述：</h2><p>有一个$n×m$的01矩阵，现在你可以的任意交换其中的列，要求找一个最大的仅由1组成的矩阵。 </p>
+<h2 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h2><p>第一行包含两个整数$n(1≤n≤15000)$和$m(1≤m≤1500)$，表示矩阵的大小。</p>
+<p>接下来$n$行，每行$m$个字符$0$或$1$。</p>
+<h2 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h2><p>一个最大的仅由$1$组成的矩阵面积。</p>
+<h2 id="样例输入输出："><a href="#样例输入输出：" class="headerlink" title="样例输入输出："></a>样例输入输出：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Input #1</span><br><span class="line">10 6</span><br><span class="line">001010</span><br><span class="line">111110</span><br><span class="line">011110</span><br><span class="line">111110</span><br><span class="line">011110</span><br><span class="line">111111</span><br><span class="line">110111</span><br><span class="line">110111</span><br><span class="line">000101</span><br><span class="line">010101</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Output #1</span><br><span class="line">21</span><br></pre></td></tr></table></figure>
+<h2 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h2><p><strong>时间限制0.6秒</strong></p>
+<p><strong>空间限制64MB</strong></p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1>
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CEOI/" rel="tag"># CEOI</a>
+          
+            <a href="/tags/2009/" rel="tag"># 2009</a>
+          
+            <a href="/tags/悬线法/" rel="tag"># 悬线法</a>
+          
+            <a href="/tags/滚动数组/" rel="tag"># 滚动数组</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/CEOI1995-stick/" rel="next" title="CEOI1995 stick 题解">
+                <i class="fa fa-chevron-left"></i> CEOI1995 stick 题解
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
 
         </div>
         
@@ -469,8 +607,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -636,6 +783,23 @@
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Problem"><span class="nav-number">1.</span> <span class="nav-text">Problem</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题简述："><span class="nav-number">1.1.</span> <span class="nav-text">问题简述：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输入格式："><span class="nav-number">1.2.</span> <span class="nav-text">输入格式：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输出格式："><span class="nav-number">1.3.</span> <span class="nav-text">输出格式：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#样例输入输出："><span class="nav-number">1.4.</span> <span class="nav-text">样例输入输出：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#限制"><span class="nav-number">1.5.</span> <span class="nav-text">限制</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Solution"><span class="nav-number">2.</span> <span class="nav-text">Solution</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
         <div class="back-to-top">
@@ -766,6 +930,10 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
 
   
 
@@ -811,6 +979,8 @@
 
 
 
+
+  
 
 
   
