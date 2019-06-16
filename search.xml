@@ -6,6 +6,18 @@
     <content type="text"><![CDATA[这里总结了fanhy大部分的写程序的经验，供各位参考，也欢迎在评论区指出错误或不足。 Warning 千万不要起重复的函数名，即使编译器成功编译了。 千万不要把很多代码压成1行。 千万不要跳着写代码，如果需要请在注释里写下TODO。 千万不要依赖编译器的调试功能，调试时先重新阅读一遍代码。 尽量不要起很短的变量名或函数名，自己要一眼能看懂。 尽量不要把一个变量作两个用途，否则调试会很困难。 边界一定写完整。 递归时一定不能出现不return的情况。 整篇代码统一设置从0或1开始，避免调试时不必要的麻烦。 getchar()注意吃换行。 使用sort排序结构体时最好在结构体中重载&gt;或&lt;。 易出错的函数：min(),max(),abs(),get(),gets(),memset().使用这些函数应当注意。 Reference1234567891011121314151617181920212223//快读、快写模板namespace IO &#123; char buf[110];&#125;template &lt;typename T&gt;inline void qr(T &amp;x) &#123; char ch=getchar(),lst=' '; while((ch &gt; '9') || (ch &lt; '0')) lst=ch,ch=getchar(); while((ch &gt;= '0') &amp;&amp; (ch &lt;= '9')) x=(x&lt;&lt;1)+(x&lt;&lt;3)+(ch^48),ch=getchar(); if(lst == '-') x=-x;&#125;template &lt;typename T&gt;inline void write(T x,const char aft,const bool pt) &#123; if(x &lt; 0) &#123;putchar('-');x=-x;&#125; rg int top=0; do &#123; IO::buf[++top]=x%10+'0';x/=10; &#125; while(x); while(top) putchar(IO::buf[top--]); if(pt) putchar(aft);&#125;]]></content>
   </entry>
   <entry>
+    <title><![CDATA[洛谷P1336 最佳课题选择 题解]]></title>
+    <url>%2FLuogu-P1336%2F</url>
+    <content type="text"><![CDATA[Problem题目描述Matrix67要在下个月交给老师$n$篇论文，论文的内容可以从$m$个课题中选择。由于课题数有限，Matrix67不得不重复选择一些课题。完成不同课题的论文所花的时间不同。具体地说，对于某个课题$i$，若Matrix67计划一共写$x$篇论文，则完成该课题的论文总共需要花费$A_i×x^{B_i}$个单位时间（系数$A_i$和指数$B_i$均为正整数）。给定与每一个课题相对应的$A_i$和$B_i$的值，请帮助Matrix67计算出如何选择论文的课题使得他可以花费最少的时间完成这$n$篇论文。 输入输出格式输入格式：第一行有两个用空格隔开的正整数$n$和$m$，分别代表需要完成的论文数和可供选择的课题数。 以下$m$行每行有两个用空格隔开的正整数。其中，第$i$行的两个数分别代表与第$i$个课题相对应的时间系数$A_i$和指数$B_i$。 输出格式：输出完成$n$篇论文所需要耗费的最少时间。 输入输出样例12345Input #110 32 11 22 1 12Output #119 样例说明：4篇论文选择课题一，5篇论文选择课题三，剩下一篇论文选择课题二，总耗时为$2×4^1+1×1^2+2×5^1=8+1+10=19$。可以证明，不存在更优的方案使耗时小于$19$。 Solution很简单的一道dp题。 虽然它长得像完全背包，但实质上是01背包。指数运算使得相同课题的耗时不能叠加，只能写3重循环来处理。这里背包中所有物品的大小都是1。 这道题求的是最小值，怎么办呢？将dp数组赋一个极大值，dp[0]=0，之后dp做的是min()而不是max()。 状态转移方程： 12//j是目前背包大小，k是写作篇数，cost是耗时f[j] = min(f[j], f[j - k] + cost); 另外，答案较大，需要开long long。 123456789101112131415161718192021222324252627282930313233343536#include &lt;bits/stdc++.h&gt;using namespace std;const int MAXN = 200 + 5;const int MAXM = 20 + 5;int n, m;int a[MAXM], b[MAXM];long long f[MAXN];long long Pow(int x, int y) //卡速米&#123; long long ret = 1, f = x; while(y &gt; 0) &#123; if(y &amp; 1) ret *= f; y &gt;&gt;= 1; f *= f; &#125; return ret;&#125;int main()&#123; for (int i = 1; i &lt; MAXN; i++) f[i] = 0x7fffffffff; //赋极大值 cin &gt;&gt; n &gt;&gt; m; for (int i = 1; i &lt;= m; i++) cin &gt;&gt; a[i] &gt;&gt; b[i]; for (int i = 1; i &lt;= m; i++) for (int j = n; j &gt;= 1; j--) for (int k = 1; k &lt;= j; k++) &#123; long long cost = a[i] * Pow(k, b[i]); //计算花费 f[j] = min(f[j], f[j - k] + cost); &#125; cout &lt;&lt; f[n] &lt;&lt; endl; return 0;&#125; Data评测请至洛谷P1336。]]></content>
+      <categories>
+        <category>solution</category>
+      </categories>
+      <tags>
+        <tag>Luogu</tag>
+        <tag>动态规划</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[洛谷P2756 飞行员配对方案问题 题解]]></title>
     <url>%2FLuogu-P2756%2F</url>
     <content type="text"><![CDATA[Problem题目描述英国皇家空军从沦陷国征募了大量外籍飞行员。由皇家空军派出的每一架飞机都需要配备在航行技能和语言上能互相配合的 2 名飞行员，其中 1 名是英国飞行员，另 1 名是外籍飞行员。在众多的飞行员中，每一名外籍飞行员都可以与其他若干名英国飞行员很好地配合。如何选择配对飞行的飞行员才能使一次派出最多的飞机。对于给定的外籍飞行员与英国飞行员的配合情况，试设计一个算法找出最佳飞行员配对方案，使皇家空军一次能派出最多的飞机。 对于给定的外籍飞行员与英国飞行员的配合情况，编程找出一个最佳飞行员配对方案，使皇家空军一次能派出最多的飞机。 输入输出格式输入格式：第 1 行有 2 个正整数$m$和$n$。$n$是皇家空军的飞行员总数$(n&lt;100)$；$m$是外籍飞行员数$(m&lt;=n)$。外籍飞行员编号为$1$ ~ $m$；英国飞行员编号为$m+1$ ~ $n$。 接下来每行有 2 个正整数$i$和$j$，表示外籍飞行员$i$可以和英国飞行员$j$配合。最后以2个-1结束。 输出格式：第 1 行是最佳飞行员配对方案一次能派出的最多的飞机数$M$。接下来$M$行是最佳飞行员配对方案。每行有 2个正整数$i$和$j$，表示在最佳飞行员配对方案中，飞行员$i$和飞行员$j$配对。如果所求的最佳飞行员配对方案不存在，则输出‘No Solution!’。 输入输出样例12345678910111213Input #15 101 71 82 62 92 103 73 84 74 85 10-1 -1 123456Output #141 72 93 85 10 Solution虽然是网络流的经典题，但由于我这个蒟蒻不会网络流，用匈牙利算法水过了。 乍一看，二分图匹配板子题，板子拉下来稍微改一下。 就这么过了 P.S.: 匈牙利算法模板可以参考这篇题解，里面写的还是很不错的。 与模板题唯一的不同之处在于，它要求输出配对方案。 由于我们在计算方案数的时候已经将match数组对应好了，最后无脑输出就可以了。 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950#include &lt;bits/stdc++.h&gt;using namespace std;const int MAXN = 100 + 5;struct node&#123; int from, to, next;&#125;edge[MAXN * MAXN];int cnt, ans;int m, n, e;int a, b;int head[MAXN], lastt[MAXN], match[MAXN];void add(int a, int b)&#123; edge[++cnt].from = a; edge[cnt].to = b; edge[cnt].next = head[a]; head[a] = cnt;&#125;int iter(int p, int t)&#123; for(int i = head[p]; i; i = edge[i].next) &#123; int to = edge[i].to; if (lastt[to] != t) &#123; lastt[to] = t; if (!match[to] || iter(match[to], t)) &#123; match[to] = p; return true; &#125; &#125; &#125; return false;&#125;int main()&#123; cin &gt;&gt; m &gt;&gt; n; while(true) &#123; cin &gt;&gt; a &gt;&gt; b; if (a == -1 &amp;&amp; b == -1) break; add(a, b); &#125; for (int i = 1; i &lt;= m; i++) if (iter(i, i)) ans++; cout &lt;&lt; ans &lt;&lt; endl; for (int i = m + 1; i &lt;= n; i++) if (match[i]) cout &lt;&lt; match[i] &lt;&lt; ' ' &lt;&lt; i &lt;&lt; endl; return 0;&#125; Data提交请至洛谷P2756。]]></content>
@@ -54,8 +66,8 @@
         <category>solution</category>
       </categories>
       <tags>
-        <tag>搜索</tag>
         <tag>DFS</tag>
+        <tag>搜索</tag>
         <tag>CEOI</tag>
         <tag>1995</tag>
       </tags>
@@ -68,10 +80,10 @@
         <category>solution</category>
       </categories>
       <tags>
-        <tag>搜索</tag>
         <tag>Balkan</tag>
         <tag>2008</tag>
         <tag>DFS</tag>
+        <tag>搜索</tag>
       </tags>
   </entry>
   <entry>
@@ -82,11 +94,11 @@
         <category>solution</category>
       </categories>
       <tags>
+        <tag>搜索</tag>
         <tag>BOI</tag>
         <tag>2013</tag>
         <tag>BFS</tag>
         <tag>反色</tag>
-        <tag>搜索</tag>
       </tags>
   </entry>
 </search>
