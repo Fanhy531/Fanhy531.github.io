@@ -105,7 +105,7 @@
 <meta property="og:description" content="Problem题目描述如题，给出一个网络图，以及其源点和汇点，每条边已知其最大流量和单位流量费用，求出其网络最大流和在最大流情况下的最小费用。 输入输出格式输入格式：第一行包含四个正整数$N,M,S,T$，分别表示点的个数、有向边的个数、源点序号、汇点序号。 接下来M行每行包含四个正整数$u_i,v_i,w_i,f_i$，表示第i条有向边从$u_i$出发，到达$v_i$，边权为$w_i$（即该边最">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://cdn.luogu.org/upload/pic/2286.png">
-<meta property="og:updated_time" content="2019-07-08T17:45:04.658Z">
+<meta property="og:updated_time" content="2019-07-08T17:49:43.025Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="洛谷P3381 最小费用最大流 题解">
 <meta name="twitter:description" content="Problem题目描述如题，给出一个网络图，以及其源点和汇点，每条边已知其最大流量和单位流量费用，求出其网络最大流和在最大流情况下的最小费用。 输入输出格式输入格式：第一行包含四个正整数$N,M,S,T$，分别表示点的个数、有向边的个数、源点序号、汇点序号。 接下来M行每行包含四个正整数$u_i,v_i,w_i,f_i$，表示第i条有向边从$u_i$出发，到达$v_i$，边权为$w_i$（即该边最">
@@ -438,7 +438,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-09 01:45:04" itemprop="dateModified" datetime="2019-07-09T01:45:04+08:00">2019-07-09</time>
+                <time title="Modified: 2019-07-09 01:49:43" itemprop="dateModified" datetime="2019-07-09T01:49:43+08:00">2019-07-09</time>
               
             
           </span>
@@ -524,8 +524,7 @@
 <p>故最大流量为$50$，在此状况下最小费用为$60+60+160=280$。</p>
 <p>故输出$50 280$。</p>
 <h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>网络流模板题。</p>
-<p>网络最大流可以参考<a href>这篇题解</a>。</p>
-<p>要求在满足最大流情况下的最小费用，可以在原代码上做一些修改。</p>
+<p>要求在满足最大流情况下的最小费用，可以在最大流的代码上做一些修改。</p>
 <p>原本的EK算法是每次BFS只找流量最大的路径路径，现在要求最小费用，可以先找费用最小的，而不是流量最大的。毕竟有路肯定先挑费用少的走嘛。在EK上套一个SPFA就可以了。</p>
 <p>如何证明该算法的正确性？</p>
 <p>首先要知道，每条流的顺序对最大流的数值不产生影响。那么，先找费用最小的流，可以保证在满足最大流的情况下，找到最小的费用。并且，也不用担心某条流会因为费用太大跑不进去（除非有其他费用更小的流满足了最大流），费用再大也没有∞大，肯定是可以的。</p>
@@ -688,8 +687,6 @@
                 <div class="site-state-item site-state-tags">
                   
                     
-                    
-                      
                     
                       
                     
