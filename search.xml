@@ -6,6 +6,14 @@
     <content type="text"><![CDATA[这里总结了fanhy大部分的写程序的经验，供各位参考，也欢迎在评论区指出错误或不足。 Warning 千万不要起重复的函数名，即使编译器成功编译了。 千万不要把很多代码压成1行。 千万不要跳着写代码，如果需要请在注释里写下TODO。 千万不要依赖编译器的调试功能，调试时先重新阅读一遍代码。 尽量不要起很短的变量名或函数名，自己要一眼能看懂。 尽量不要把一个变量作两个用途，否则调试会很困难。 边界一定写完整。 递归时一定不能出现不return的情况。 整篇代码统一设置从0或1开始，避免调试时不必要的麻烦。 getchar()注意吃换行。 使用sort排序结构体时最好在结构体中重载&gt;或&lt;。 易出错的函数：min(),max(),abs(),get(),gets(),memset().使用这些函数应当注意。 Reference1234567891011121314151617181920212223//快读、快写模板namespace IO &#123; char buf[110];&#125;template &lt;typename T&gt;inline void qr(T &amp;x) &#123; char ch=getchar(),lst=' '; while((ch &gt; '9') || (ch &lt; '0')) lst=ch,ch=getchar(); while((ch &gt;= '0') &amp;&amp; (ch &lt;= '9')) x=(x&lt;&lt;1)+(x&lt;&lt;3)+(ch^48),ch=getchar(); if(lst == '-') x=-x;&#125;template &lt;typename T&gt;inline void write(T x,const char aft,const bool pt) &#123; if(x &lt; 0) &#123;putchar('-');x=-x;&#125; rg int top=0; do &#123; IO::buf[++top]=x%10+'0';x/=10; &#125; while(x); while(top) putchar(IO::buf[top--]); if(pt) putchar(aft);&#125;]]></content>
   </entry>
   <entry>
+    <title><![CDATA[如何从网站上暴力截取视频？（误导向）]]></title>
+    <url>%2Fvideo-catch%2F</url>
+    <content type="text"><![CDATA[如果你在B站上看了一个视频，想要截下来，怎么办？ 这里科普一个十分暴力的方法。 本教程以B站上的bad apple为例。 当然，这个方法可能不止适用于B站。 *：本机环境Windows10 x64，Chrome 76.0.3809.132。 打开开发者工具，点击network，再按Ctrl + R或Ctrl + F5。 点击最长的那条蓝线（大概是视频了），在那一条上右键，鼠标滑到Copy。 这里推荐先复制url，打开试试看。 如果能打开就不需要以下的步骤了，直接下载就好。 那如果不能下载怎么办？（403是正常的，这个视频本身就无法访问，否则也不需要下面的步骤了） 选择Copy as PowerShell，在记事本中粘贴； 以下这句话请紧跟在原文后面（包括空格请一起复制） 1-OutFile &quot;$env:temp\badapple.flv&quot; 其中badapple.flv可以根据你想要的文件名和原文件的格式进行改变。 打开Windows PowerShell（在此对使用Mac的同学表示抱歉），把刚才那段话粘贴进去，按Enter 然后再输： 1Unblock-File &quot;$env:temp\badapple.flv&quot; 同上，badapple.flv是可以换的，请与上边保持一致的文件名。 效果如下图： 如果没有出现黑底红字的警告就算正常。 注意：这个方法只能用一次，如果一次由于操作（或某不知原因的）失误而导致失败，则需回到原网页按Ctrl + F5，再按上述方法重新申请PowerShell值重试。如果继续使用原来的PowerShell值可能会导致403。 文件位置：C:\Users\BOSS\AppData\Local\Temp\badapple.flv。 至于flv转mp4什么的我推荐一个网站：convertio 完]]></content>
+      <categories>
+        <category>notes</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[BOI2010 grid 题解]]></title>
     <url>%2FBOI2010-grid%2F</url>
     <content type="text"><![CDATA[Problem题目描述考虑下面的字母网格: 从字母网格读取的单词TARTU有7种方式: 给出字母网格中的一个单词，请你计算从字母网格的读取这个单词的方式个数。单词的第一个字母，可以从字母网格的任意单元格开始，下一个字母可从相邻单元(水平,垂直或对角线)读取。读单词时，一个单元格字母可多次读取。 输入格式：第一行包含三个整数：$H(H≤200)$网格的高度，$W(W≤200)$网格的宽度，和$L(L≤100)$单词的最大长度。 下面的$H$行，每行$W$个字母描述网格。最后一行是长度为$L$单词。网格和单词都是大写的英文字母(A~Z)。 输出格式：仅输出一个整数，你可以假设方案个数不超过${10}^{18}$。 样例输入输出：123456Input #13 4 5ERATATSRAUTUTARTU 12Output #17 12345Input #22 2 10AAAAAAAAAAAAAA 12Output #278732 Solution搜索首先想到的自然是搜索。 于是最劣运算次数约为：$200×8^{99}≈5.1×10^{91}‬$ 暴搜挂着机，打表出省一 对于深搜最常用的两种优化：剪枝、记忆化。 好像这道题不能剪枝？那就用记忆化。 $f[x][y][depth]$记录当前坐标上的字母为第$depth$位时之后有多少种可行方案。 迭代模拟由于当前一层的地图（即$f[][][depth]$）只受上一层地图（即$f[][][depth-1]$）的影响，因此可以考虑将递归转迭代。 $f[x][y][depth]$记录当前坐标上的字母为第$depth$位时有多少种可行方案。 可以发现$f[x][y][depth]$就是它周围$8$个方格里的$f[][][depth-1]$之和。 特殊情况： $letter[x][y]≠word[depth]$，则$f[x][y][depth]=0$; $depth=1且letter[x][y]=word[depth]$，则$f[x][y][depth]=1$。 12345678910111213141516171819202122232425262728293031323334353637#include &lt;bits/stdc++.h&gt;using namespace std;const int dx[8] = &#123; 1, 1, 0, -1, -1, -1, 0, 1 &#125;;const int dy[8] = &#123; 0, 1, 1, 1, 0, -1, -1, -1 &#125;;const int MAXN = 200 + 5;const int MAXLEN = 100 + 5;int n, m, len;char _map[MAXN][MAXN], word[MAXLEN];long long f[MAXLEN][MAXN][MAXN];long long ans;int main()&#123; cin &gt;&gt; n &gt;&gt; m &gt;&gt; len; for (int i = 1; i &lt;= n; i++) &#123; _map[i][0] = getchar(); for (int j = 1; j &lt;= m; j++) _map[i][j] = getchar(); &#125; word[0] = getchar(); for (int i = 1; i &lt;= len; i++) word[i] = getchar(); for (int i = 1; i &lt;= len; i++) for (int j = 1; j &lt;= n; j++) for (int k = 1; k &lt;= m; k++) &#123; if (_map[j][k] != word[i]) &#123; f[i][j][k] = 0; continue; &#125; if (i == 1) &#123; f[i][j][k] = 1; continue; &#125; for (int diri = 0; diri &lt; 8; diri++) f[i][j][k] += f[i - 1][j + dx[diri]][k + dy[diri]]; &#125; for (int i = 1; i &lt;= n; i++) for (int j = 1; j &lt;= m; j++) ans += f[len][i][j]; cout &lt;&lt; ans &lt;&lt; endl; return 0;&#125; 当然写成滚动数组更好，但是本人太懒，外加数据范围不大，为了增加代码可读性，没有展示滚动数组的代码。 Data链接：https://pan.baidu.com/s/1UUtmZlnT5NjhE_8nDr-Euw 提取码：grwc 数据仓库：https://github.com/Fanhy531/testdata]]></content>
@@ -112,10 +120,10 @@
         <category>solution</category>
       </categories>
       <tags>
-        <tag>搜索</tag>
-        <tag>DFS</tag>
         <tag>CEOI</tag>
         <tag>1995</tag>
+        <tag>DFS</tag>
+        <tag>搜索</tag>
       </tags>
   </entry>
   <entry>
@@ -126,10 +134,10 @@
         <category>solution</category>
       </categories>
       <tags>
+        <tag>DFS</tag>
         <tag>搜索</tag>
         <tag>Balkan</tag>
         <tag>2008</tag>
-        <tag>DFS</tag>
       </tags>
   </entry>
   <entry>
@@ -141,10 +149,10 @@
       </categories>
       <tags>
         <tag>BOI</tag>
+        <tag>搜索</tag>
         <tag>2013</tag>
         <tag>BFS</tag>
         <tag>反色</tag>
-        <tag>搜索</tag>
       </tags>
   </entry>
 </search>
