@@ -120,10 +120,10 @@
         <category>solution</category>
       </categories>
       <tags>
+        <tag>搜索</tag>
+        <tag>DFS</tag>
         <tag>CEOI</tag>
         <tag>1995</tag>
-        <tag>DFS</tag>
-        <tag>搜索</tag>
       </tags>
   </entry>
   <entry>
@@ -134,10 +134,10 @@
         <category>solution</category>
       </categories>
       <tags>
-        <tag>DFS</tag>
         <tag>搜索</tag>
         <tag>Balkan</tag>
         <tag>2008</tag>
+        <tag>DFS</tag>
       </tags>
   </entry>
   <entry>
@@ -149,10 +149,10 @@
       </categories>
       <tags>
         <tag>BOI</tag>
-        <tag>搜索</tag>
         <tag>2013</tag>
         <tag>BFS</tag>
         <tag>反色</tag>
+        <tag>搜索</tag>
       </tags>
   </entry>
 </search>
