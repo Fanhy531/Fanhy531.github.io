@@ -8,7 +8,7 @@
   <entry>
     <title><![CDATA[如何从网站上暴力截取视频？（误导向）]]></title>
     <url>%2Fvideo-catch%2F</url>
-    <content type="text"><![CDATA[如果你在B站上看了一个视频，想要截下来，怎么办？ 这里科普一个十分暴力的方法。 本教程以B站上的bad apple为例。 当然，这个方法可能不止适用于B站。 *：本机环境Windows10 x64，Chrome 76.0.3809.132。 打开开发者工具，点击network，再按Ctrl + R或Ctrl + F5。 点击最长的那条蓝线（大概是视频了），在那一条上右键，鼠标滑到Copy。 这里推荐先复制url，打开试试看。 如果能打开就不需要以下的步骤了，直接下载就好。 那如果不能下载怎么办？（403是正常的，这个视频本身就无法访问，否则也不需要下面的步骤了） 选择Copy as PowerShell，在记事本中粘贴； 以下这句话请紧跟在原文后面（包括空格请一起复制） 1-OutFile &quot;$env:temp\badapple.flv&quot; 其中badapple.flv可以根据你想要的文件名和原文件的格式进行改变。 打开Windows PowerShell（在此对使用Mac的同学表示抱歉），把刚才那段话粘贴进去，按Enter 然后再输： 1Unblock-File &quot;$env:temp\badapple.flv&quot; 同上，badapple.flv是可以换的，请与上边保持一致的文件名。 效果如下图： 如果没有出现黑底红字的警告就算正常。 注意：这个方法只能用一次，如果一次由于操作（或某不知原因的）失误而导致失败，则需回到原网页按Ctrl + F5，再按上述方法重新申请PowerShell值重试。如果继续使用原来的PowerShell值可能会导致403。 文件位置：C:\Users\BOSS\AppData\Local\Temp\badapple.flv。 至于flv转mp4什么的我推荐一个网站：convertio 完]]></content>
+    <content type="text"><![CDATA[如果你在B站上看了一个视频，想要截下来，怎么办？ 这里科普一个十分暴力的方法。 本教程以B站上的bad apple为例。 当然，这个方法可能不止适用于B站。 *：本机环境Windows10 x64，Chrome 76.0.3809.132。 打开开发者工具，点击network，再按Ctrl + R或Ctrl + F5。 点击最长的那条蓝线（大概是视频了），在那一条上右键，鼠标滑到Copy。 这里推荐先复制url，打开试试看。 如果能打开就不需要以下的步骤了，直接下载就好。 那如果不能下载怎么办？（403是正常的，这个视频本身就无法访问，否则也不需要下面的步骤了） 选择Copy as PowerShell，在记事本中粘贴； 以下这句话请紧跟在原文后面（包括空格请一起复制） 1-OutFile &quot;$env:temp\badapple.flv&quot; 其中badapple.flv可以根据你想要的文件名和原文件的格式进行改变。 打开Windows PowerShell（在此对使用Mac的同学表示抱歉），把刚才那段话粘贴进去，按Enter 然后再输： 1Unblock-File &quot;$env:temp\badapple.flv&quot; 同上，badapple.flv是可以换的，请与上边保持一致的文件名。 效果如下图： 如果没有出现黑底红字的警告就算正常。 注意：这个方法只能用一次，如果一次由于操作（或某不知原因的）失误而导致失败，则需回到原网页按Ctrl + F5，再按上述方法重新申请PowerShell值重试。如果继续使用原来的PowerShell值可能会导致403。 文件位置：C:\Users\xxx\AppData\Local\Temp\badapple.flv。 至于flv转mp4什么的我推荐一个网站：convertio 完]]></content>
       <categories>
         <category>notes</category>
       </categories>
@@ -121,9 +121,9 @@
       </categories>
       <tags>
         <tag>搜索</tag>
-        <tag>DFS</tag>
         <tag>CEOI</tag>
         <tag>1995</tag>
+        <tag>DFS</tag>
       </tags>
   </entry>
   <entry>
@@ -135,9 +135,9 @@
       </categories>
       <tags>
         <tag>搜索</tag>
+        <tag>DFS</tag>
         <tag>Balkan</tag>
         <tag>2008</tag>
-        <tag>DFS</tag>
       </tags>
   </entry>
   <entry>
