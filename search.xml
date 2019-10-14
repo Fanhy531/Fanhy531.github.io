@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[「置顶」fanhy的程序指南]]></title>
     <url>%2Fprogram-guide%2F</url>
-    <content type="text"><![CDATA[这里总结了fanhy大部分的写程序的经验，供各位参考，也欢迎在评论区指出错误或不足。 Warning 千万不要起重复的函数名，即使编译器成功编译了。 千万不要把很多代码压成1行。 千万不要跳着写代码，如果需要请在注释里写下TODO。 千万不要依赖编译器的调试功能，调试时先重新阅读一遍代码。 尽量不要起很短的变量名或函数名，自己要一眼能看懂。 尽量不要把一个变量作两个用途，否则调试会很困难。 边界一定写完整。 递归时一定不能出现不return的情况。 整篇代码统一设置从0或1开始，避免调试时不必要的麻烦。 getchar()注意吃换行。 使用sort排序结构体时最好在结构体中重载&gt;或&lt;。 易出错的函数：min(),max(),abs(),get(),gets(),memset().使用这些函数应当注意。 Reference1234567891011121314151617181920212223//快读、快写模板namespace IO &#123; char buf[110];&#125;template &lt;typename T&gt;inline void qr(T &amp;x) &#123; char ch=getchar(),lst=' '; while((ch &gt; '9') || (ch &lt; '0')) lst=ch,ch=getchar(); while((ch &gt;= '0') &amp;&amp; (ch &lt;= '9')) x=(x&lt;&lt;1)+(x&lt;&lt;3)+(ch^48),ch=getchar(); if(lst == '-') x=-x;&#125;template &lt;typename T&gt;inline void write(T x,const char aft,const bool pt) &#123; if(x &lt; 0) &#123;putchar('-');x=-x;&#125; rg int top=0; do &#123; IO::buf[++top]=x%10+'0';x/=10; &#125; while(x); while(top) putchar(IO::buf[top--]); if(pt) putchar(aft);&#125;]]></content>
+    <content type="text"><![CDATA[这里总结了fanhy大部分的写程序的经验，供各位参考，也欢迎在评论区指出错误或不足。 Warning 万bug之祖：数据范围 三年OI一场空，不开longlong见祖宗。双倍空间无向图，下标溢出坟前哭。 千万不要起重复的函数名，即使编译器成功编译了。 千万不要把很多代码压成1行。 千万不要跳着写代码，如果需要请在注释里写下TODO。 千万不要依赖编译器的调试功能，调试时先重新阅读一遍代码。 尽量不要起很短的变量名或函数名，自己要一眼能看懂。 尽量不要把一个变量作两个用途，否则调试会很困难。 边界一定写完整。 递归时一定不能出现不return的情况。 整篇代码统一设置从0或1开始，避免调试时不必要的麻烦。 getchar()注意吃换行。 使用sort排序结构体时最好在结构体中重载&gt;或&lt;。 易出错的函数：min(),max(),abs(),get(),gets(),memset().使用这些函数应当注意。 Reference1234567891011121314151617181920212223//快读、快写模板namespace IO &#123; char buf[110];&#125;template &lt;typename T&gt;inline void qr(T &amp;x) &#123; char ch=getchar(),lst=' '; while((ch &gt; '9') || (ch &lt; '0')) lst=ch,ch=getchar(); while((ch &gt;= '0') &amp;&amp; (ch &lt;= '9')) x=(x&lt;&lt;1)+(x&lt;&lt;3)+(ch^48),ch=getchar(); if(lst == '-') x=-x;&#125;template &lt;typename T&gt;inline void write(T x,const char aft,const bool pt) &#123; if(x &lt; 0) &#123;putchar('-');x=-x;&#125; rg int top=0; do &#123; IO::buf[++top]=x%10+'0';x/=10; &#125; while(x); while(top) putchar(IO::buf[top--]); if(pt) putchar(aft);&#125;]]></content>
   </entry>
   <entry>
     <title><![CDATA[如何从网站上暴力截取视频？（误导向）]]></title>
@@ -121,9 +121,9 @@
       </categories>
       <tags>
         <tag>搜索</tag>
+        <tag>DFS</tag>
         <tag>CEOI</tag>
         <tag>1995</tag>
-        <tag>DFS</tag>
       </tags>
   </entry>
   <entry>
@@ -135,9 +135,9 @@
       </categories>
       <tags>
         <tag>搜索</tag>
-        <tag>DFS</tag>
         <tag>Balkan</tag>
         <tag>2008</tag>
+        <tag>DFS</tag>
       </tags>
   </entry>
   <entry>
